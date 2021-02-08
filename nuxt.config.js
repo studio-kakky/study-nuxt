@@ -35,7 +35,16 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/proxy',
   ],
+  proxy: {
+    '/api/': {
+      target: 'https://api.yelp.com/',
+      pathRewrite: {
+        '^/api/': '/',
+      },
+    },
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},

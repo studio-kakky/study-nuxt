@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <CommonHeader />
+    <Restaurants />
   </div>
 </template>
 

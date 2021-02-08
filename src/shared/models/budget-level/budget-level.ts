@@ -1,8 +1,9 @@
 import { NumberValue } from '../base/values/number-value';
 
-type Level = 1 | 2 | 3 | 4;
+type Level = 0 | 1 | 2 | 3 | 4;
 
 const priceStringMap = new Map<Level, string>([
+  [0, ''],
   [1, '$'],
   [2, '$$'],
   [3, '$$$'],
@@ -11,8 +12,8 @@ const priceStringMap = new Map<Level, string>([
 
 export class BudgetLevel extends NumberValue {
   static fromNumber(level: number) {
-    if (![1, 2, 3, 4].includes(level)) {
-      return new BudgetLevel(1);
+    if (![0, 1, 2, 3, 4].includes(level)) {
+      return new BudgetLevel(0);
     }
 
     return new BudgetLevel(level as Level);

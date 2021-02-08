@@ -18,6 +18,10 @@ export class LatLng extends BaseObject {
   }
 
   get lng(): number {
-    return this.longitude
+    return this.longitude;
+  }
+
+  toParams(): { latitude: number; longitude: number } {
+    return this.params;
   }
 }

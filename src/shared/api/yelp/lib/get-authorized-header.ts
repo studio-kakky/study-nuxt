@@ -1,5 +1,5 @@
 import { yelp } from '../../../../../.yelp-api-key';
 
-export const getAuthorizationHeader = (): { Authorization: string } => {
-  return { Authorization: `Bearer ${yelp}` };
+export const getAuthorizationHeader = (): { authorization: string } => {
+  return { authorization: `Bearer ${yelp.apiKey}` };
 };

@@ -7,6 +7,10 @@ import { BudgetLevel } from '../../shared/models/budget-level/budget-level';
 import { Restaurants } from '../../shared/models/restaurant/restaurants';
 
 const adaptOne = (res: BusinessResponse): Restaurant => {
+  const budgetLevel = !!res.price
+    ? BudgetLevel.fromNumber(res.price.length)
+    : new BudgetLevel(0);
+
   return new Restaurant({
     id: new RestaurantId(res.id),
     phoneNumber: res.phone,
@@ -23,7 +27,7 @@ const adaptOne = (res: BusinessResponse): Restaurant => {
       state: res.location.state,
       zipCode: res.location.zip_code,
     }),
-    budgetLevel: BudgetLevel.fromNumber(res.price.length),
+    budgetLevel,
     rating: res.rating,
   });
 };

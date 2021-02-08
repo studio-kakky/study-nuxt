@@ -27,11 +27,8 @@ export class YelpBusinessGetApiInputModel extends BaseGetInputModel {
       : {};
 
     const coordinates = !!this.params.coordinates
-      ? {
-          latitude: this.params.coordinates.latitude,
-          longitude: this.params.coordinates.longitude,
-        }
-      : {};
+      ? this.params.coordinates.toParams()
+      : this.getDefaultLocation().toParams();
 
     const limit = !!this.params.limit ? { limit: this.params.limit } : {};
     const offset = !!this.params.offset ? { offset: this.params.offset } : {};
@@ -48,4 +45,10 @@ export class YelpBusinessGetApiInputModel extends BaseGetInputModel {
     } as RequestParams;
   }
 
+  private getDefaultLocation(): LatLng {
+    return new LatLng({
+      latitude: 35.679876228786576,
+      longitude: 139.7703871925059,
+    });
+  }
 }
