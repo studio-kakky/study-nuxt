@@ -1,4 +1,5 @@
 import { getAccessorType } from 'typed-vuex';
+import * as restaurants from './restaurants';
 
 export const state = () => {
   return {};
@@ -21,4 +22,7 @@ export const accessorType = getAccessorType({
   getters,
   mutations,
   actions,
+  modules: {
+    restaurants,
+  },
 });

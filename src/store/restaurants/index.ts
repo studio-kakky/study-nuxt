@@ -5,9 +5,11 @@ import { YelpBusinessGetApiInputModel } from '../../shared/api/yelp/business/get
 import { yelpBusinessSearchApi } from '../../shared/api/yelp/business/api';
 import { adapt } from './adapt';
 
-export const state = () => ({
-  restaurants: Restaurants.blank(),
-});
+export const state = () => {
+  return {
+    restaurants: Restaurants.blank(),
+  };
+};
 
 export type RootState = ReturnType<typeof state>;
 

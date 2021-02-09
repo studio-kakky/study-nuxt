@@ -26,9 +26,11 @@ const adaptOne = (res: BusinessResponse): Restaurant => {
       address3: res.location.address3,
       state: res.location.state,
       zipCode: res.location.zip_code,
+      displayAddress: res.location.display_address,
     }),
     budgetLevel,
     rating: res.rating,
+    aliasName: res.alias,
   });
 };
 

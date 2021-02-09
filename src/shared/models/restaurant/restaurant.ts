@@ -8,6 +8,7 @@ interface AdaptedRestaurant {
   id: RestaurantId;
   phoneNumber: string;
   name: string;
+  aliasName: string;
   url: string;
   coordinates: LatLng;
   thumbnailUrl: string;
@@ -51,5 +52,9 @@ export class Restaurant extends BaseEntity<RestaurantId> {
 
   get rating(): number {
     return this.item.rating;
+  }
+
+  get aliasName(): string {
+    return this.item.aliasName;
   }
 }

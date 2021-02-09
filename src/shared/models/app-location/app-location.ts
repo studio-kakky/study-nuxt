@@ -8,6 +8,7 @@ interface AdaptedLocation {
   address3: string;
   state: string;
   zipCode: string;
+  displayAddress: string[];
 }
 
 export class AppLocation extends BaseObject {
@@ -41,5 +42,9 @@ export class AppLocation extends BaseObject {
 
   get zipCode(): string {
     return this.params.zipCode;
+  }
+
+  get displayAddress(): string[] {
+    return this.params.displayAddress;
   }
 }
