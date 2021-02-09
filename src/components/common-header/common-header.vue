@@ -3,11 +3,14 @@
     <h1 class="PageHeader_h">StudyNuxt</h1>
     <nav class="GlobalNav">
       <ul class="GlobalNav_Items">
-        <li class="GlobalNav_Item"><a class="GlobalNav_Item_Link">Home</a></li>
+        <li class="GlobalNav_Item">
+          <nuxt-link class="GlobalNav_Item_Link" to="/">Top</nuxt-link>
+        </li>
         <li class="GlobalNav_Item"><a class="GlobalNav_Item_Link">About</a></li>
         <li class="GlobalNav_Item"><a class="GlobalNav_Item_Link">Blogs</a></li>
       </ul>
     </nav>
+    <div class=""></div>
   </header>
 </template>
 
