@@ -9,30 +9,32 @@
         <img class="RestaurantThumbnail_img" :src="restaurant.thumbnailUrl" />
       </div>
       <table class="RestaurantInfoTable">
-        <tr class="RestaurantInfoTable_Row">
-          <th class="RestaurantInfoTable_head">価格帯</th>
-          <td class="RestaurantInfoTable_cell">
-            {{ restaurant.budgetLevel.toPriceString() }}
-          </td>
-        </tr>
-        <tr class="RestaurantInfoTable_Row">
-          <th class="RestaurantInfoTable_head">住所</th>
-          <td class="RestaurantInfoTable_cell">
-            {{ `${restaurant.location.displayAddress.join(' ')} ` }}
-          </td>
-        </tr>
-        <tr class="RestaurantInfoTable_Row">
-          <th class="RestaurantInfoTable_head">電話番号</th>
-          <td class="RestaurantInfoTable_cell">
-            {{ restaurant.phoneNumber }}
-          </td>
-        </tr>
-        <tr class="RestaurantInfoTable_Row">
-          <th class="RestaurantInfoTable_head">評価</th>
-          <td class="RestaurantInfoTable_cell">
-            {{ restaurant.rating }}
-          </td>
-        </tr>
+        <tbody>
+          <tr class="RestaurantInfoTable_Row">
+            <th class="RestaurantInfoTable_head">価格帯</th>
+            <td class="RestaurantInfoTable_cell">
+              {{ restaurant.budgetLevel.toPriceString() }}
+            </td>
+          </tr>
+          <tr class="RestaurantInfoTable_Row">
+            <th class="RestaurantInfoTable_head">住所</th>
+            <td class="RestaurantInfoTable_cell">
+              {{ `${restaurant.location.displayAddress.join(' ')} ` }}
+            </td>
+          </tr>
+          <tr class="RestaurantInfoTable_Row">
+            <th class="RestaurantInfoTable_head">電話番号</th>
+            <td class="RestaurantInfoTable_cell">
+              {{ restaurant.phoneNumber }}
+            </td>
+          </tr>
+          <tr class="RestaurantInfoTable_Row">
+            <th class="RestaurantInfoTable_head">評価</th>
+            <td class="RestaurantInfoTable_cell">
+              {{ restaurant.rating }}
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
   </div>

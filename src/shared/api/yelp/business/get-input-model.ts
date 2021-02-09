@@ -5,7 +5,7 @@ import { getAuthorizationHeader } from '../lib/get-authorized-header';
 import { RequestParams } from '../../../models/request-params/request-params';
 
 export interface YelpBusinessGetApiParams {
-  addressName?: string;
+  location?: string;
   coordinates?: LatLng;
   limit?: number;
   offset?: number;
@@ -22,13 +22,13 @@ export class YelpBusinessGetApiInputModel extends BaseGetInputModel {
   }
 
   getQueries(): RequestParams {
-    const location = !!this.params.addressName
-      ? { location: this.params.addressName }
+    const location = !!this.params.location
+      ? { location: this.params.location }
       : {};
 
     const coordinates = !!this.params.coordinates
       ? this.params.coordinates.toParams()
-      : this.getDefaultLocation().toParams();
+      : {};
 
     const limit = !!this.params.limit ? { limit: this.params.limit } : {};
     const offset = !!this.params.offset ? { offset: this.params.offset } : {};
@@ -36,19 +36,21 @@ export class YelpBusinessGetApiInputModel extends BaseGetInputModel {
       ? { price: this.params.budgetLevel.toPriceString() }
       : {};
 
-    return {
+    const params = {
       ...location,
       ...coordinates,
       ...offset,
       ...limit,
       ...price,
     } as RequestParams;
-  }
 
-  private getDefaultLocation(): LatLng {
-    return new LatLng({
-      latitude: 35.679876228786576,
-      longitude: 139.7703871925059,
-    });
+    if (!params.location && !params.coordinates) {
+      return {
+        ...params,
+        location: 'Tokyo',
+      };
+    }
+
+    return params;
   }
 }
