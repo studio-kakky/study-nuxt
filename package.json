@@ -12,11 +12,13 @@
     "test": "jest"
   },
   "lint-staged": {
-    "*.{js,vue}": "eslint"
+    "*.{js,vue,ts}": [
+      "prettier --write"
+    ]
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged --allow-empty"
     }
   },
   "dependencies": {
